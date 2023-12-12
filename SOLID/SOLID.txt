@@ -1,0 +1,45 @@
+Principio Dry (Don't repeat Yourserlf) -> Tem como principio que em casos de códigos que se 
+repetem mais de uma vez devemos criar um método e reutiliza-lo.
+Por exemplo nas transações basicas de um caixa eletronico, temos Depositar, Sacar e transferir.
+No método transferir nada mais é que um Saque de uma conta remetente e um deposito numa conta destino.
+Nesse caso aplicamos o principio Dry reutilizando os métodos que ja fazem os comportamentos de uma transferencia.
+
+
+Principio SOLID:
+S - Responsabilidade unica -> criamos uma classe com um unico objetivo e responsabilidade.
+	Ex: Falando em uma entidade de bd cliente, podemos ter uma classe que manipula metodos
+		de leitura, uma de modificação de atualização de dados (dependendo da abstração) e uma 
+		outra de utilidades, como notificação do cliente, geração de arquivos etc.
+		Infrigiria esse principio, caso tivessemos todos esses métodos em uma unica classe.
+
+O - Aberto para extensão, fechado para modificação (OCP) -> Teoricamente é sobre uma herença ou a composição.
+	Caso tivessemos que definir dados veiculares, poderiamos ter uma classe abstrata chamada veiculos,
+	contendo atributos e comportamentos em comuns, e nas sub-classes a qual seja herdada, teriam seus 
+	comportamentos sobrescritos.
+	Tambem podemos usar em forma de interfaces, onde criamos uma interface com a assinatura de cada comportamento
+	com os atributos necessarios. Este estará aberto para novas implementações mas fechado para modificação.
+	
+L - Liskov ( Substituição de Liskov - Lsp) -> Esse principio diz que uma classe derivavel deve e pode
+	ser substituido por uma classe base.
+	Ex: temos uma classe abstrata que implementa uma interface. Essa seria nossa classe derivavel.
+	Caso surja alguma demanda que fuja do escopo dessa classe derivada, devemos criar uma nova classe
+	implementando a nossa classe base (a mesma usada na classe derivavel) e os métodos e comportamentos
+	devem ser os mesmos.
+
+I - Interface segragation (ISP) -> O principio de segregação de interfaces no auxilia a não termos interfaces
+	infladas, ou seja, não podemos deixar que classes que a implementem sejam obrigados a sobrescrever
+	métodos que não será necessario.
+	Caso isso aconteça devemos quebrar essa interface em mais de uma mantendo particularidades separadas
+	dos métodos em comum, e assim podemos implementar mais de uma interface quando necessário.
+
+D - Dependecy Inversion (Dip) -> O principio de inversão de dependencia nos diz que classes de alto nivel não 
+	devem depender de classes de baixo nivel, e sim depender de abstrações.
+	Ex: Uma classe de alto nivel que faz uma venda deve consultar um produto em um bd. Essa classe é alto nivel.
+	A classe que faz a lógica para acessar e retornar os detalhes do produto é de baixo nível.
+	Não podemos depender diretamente dessa classe, pois ela pode ser um acesso direto ao SQL-Server ou MongoDb.
+	Neste caso deveriamos ter uma interface com o método de busca e as classes possíveis (SQL, Postgres, Mongo)
+	implementando este método.
+	Utilizando alguns patterns como por exemplo o "Factory" deveriamos ter um método que nos retorne uma dessas
+	instancias, como por exemplo, baseado num enum via parametro, e assim não dependemos da classe baixo nivel.
+	
+	
