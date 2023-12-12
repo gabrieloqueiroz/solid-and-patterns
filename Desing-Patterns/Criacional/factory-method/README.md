@@ -3,7 +3,7 @@
 Este Desing-Pattern tem como objetivo criar uma fabrica de métodos, utilizando o SOLID por exemplo o principio aberto e fechado
 
 
-![diagrama_factory_method](../diagrama_factory_method.png)
+![diagrama_factory_method](diagrama_factory_method.png)
 
 - A classe abstrata **Transport** é a classe factory;
 - As classes **CarTransport**, **MotorcycleTransport** e **BikeTransport** são as classes concretas que extendem de **Transport**;
