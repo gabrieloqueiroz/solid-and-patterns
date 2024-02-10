@@ -1,4 +1,4 @@
-# Factory-Method
+# Builder
 
 Este Desing-Pattern tem como objetivo resolver a criação de objetos complexos, com muitos parametros.
 
