@@ -1,0 +1,7 @@
+bridge:
+  enable:
+    advanced-live: '{
+      "FACEBOOK": true,
+      "YOUTUBE": true,
+      "TWITCHTV": false,
+      "DISNEYPLUS": false}'
